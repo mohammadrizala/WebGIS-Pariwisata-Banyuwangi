@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web GIS</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+    <link rel="stylesheet" href="src/leaflet.groupedlayercontrol.min.css" />
+    <link rel="stylesheet" href="src/Control.Geocoder.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.1/dist/L.Control.Locate.min.css" />
+    <link rel="stylesheet" type="text/css" href="src/L.Control.ZoomBar.css"/>
+    <link rel="stylesheet" href="src/leaflet-routing-machine.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            height: 100px;
+            background-color: #87CEFA;
+        }
+        .header h1 {
+            padding: 10px;
+            text-align: center;
+        }
+        .header h1 a {
+            text-decoration: none;
+            color: azure;
+        }
+        .header ul {
+            text-align: center;
+        }
+        .header ul li {
+            color: lightslategrey;
+            font-weight: bold;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: inline-block;
+            margin-top: 5px;
+            padding: 10px 10px 15px;
+        }
+        .header ul li a {
+            text-decoration: none;
+            color: azure;
+        }
+        .header ul li a:hover {
+            color: lightslategrey;
+            font-weight: bold;
+        }
+        .content { 
+            height: 520px;
+        }
+        #map {
+            float: left;
+            height: 100%;
+            width: 100%;
+        }
+        .leaflet-control-container .leaflet-routing-container-hide {
+            width: 35px;
+            height: 35px;
+            background:#fff url(img/route.png) no-repeat 0 0;
+	        background-size:31px 31px;
+            border: 2px solid #A9A9A9;
+        }
+        .footer {
+            background-color: black;
+            height: 35px;
+        }
+        .footer p {
+            text-align: center;
+            color: white;
+            padding: 5px;
+        }
+        .leaflet-control-locate a .leaflet-control-locate-location-arrow {
+            -webkit-mask-image:url("img/my-location.svg");mask-image:url("img/my-location.svg");
+        }
+        @media (max-width:450px) {
+            .content{
+                min-height: 530px;
+                max-height: 2000px;
+            }
+            .footer{
+                font-size: 12px;
+                padding-top: 5px;
+            }
+            .leaflet-control-attribution,
+            .leaflet-control-scale-line {
+                font-size: 9px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <h1><a href="#">My Map</a></h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><span>Map</span></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div id="map"></div>
+    </div>
+    <div class="footer">
+        <p>Copyright 2022 @ Mohammad Rizal Ardiansyah</p>
+    </div>
+</body>
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+<script src="src/leaflet.groupedlayercontrol.min.js"></script>
+<script src="src/Control.Geocoder.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.1/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="src/L.Control.ZoomBar.js"></script>
+<script src="src/leaflet-routing-machine.js"></script>
+   <script src="src/leaflet.ajax.js"></script>
+   <script>
+       
+    (function() {
+        var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+        var mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+        var basemaps = {
+            Grayscale: L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr
+            }),
+            Streets: L.tileLayer(mbUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr
+            }),
+            Satellite: L.tileLayer(mbUrl, {id: 'mapbox/satellite-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr
+            })
+        };
+
+        var groups = {
+            cities: new L.GeoJSON.AJAX(["geojson/Kecamatan_Banyuwangi.geojson"],{onEachFeature:popUp, style: {"fillColor":"#7FFFD4", "fillOpacity":"0.3", "color":"#008B8B", "weight": 0.3, "opacity":0.8}}),
+            restaurants: new L.LayerGroup(),
+            dogs: new L.LayerGroup(),
+            cats: new L.LayerGroup()
+        };
+
+        L.marker([39.61, -105.02]).bindPopup('Littleton, CO.').addTo(groups.cities);
+        L.marker([39.74, -104.99]).bindPopup('Denver, CO.').addTo(groups.cities);
+        L.marker([39.73, -104.8]).bindPopup('Aurora, CO.').addTo(groups.cities);
+        L.marker([39.77, -105.23]).bindPopup('Golden, CO.').addTo(groups.cities);
+
+        L.marker([39.69, -104.85]).bindPopup('A restaurant').addTo(groups.restaurants);
+        L.marker([39.69, -105.12]).bindPopup('A restaurant').addTo(groups.restaurants);
+
+        L.marker([39.79, -104.95]).bindPopup('A dog').addTo(groups.dogs);
+        L.marker([39.79, -105.22]).bindPopup('A dog').addTo(groups.dogs);
+
+        L.marker([39.59, -104.75]).bindPopup('A cat').addTo(groups.cats);
+        L.marker([39.59, -105.02]).bindPopup('A cat').addTo(groups.cats);
+
+        window.ExampleData = {
+        LayerGroups: groups,
+        Basemaps: basemaps
+        };
+
+        }());
+        
+        //Base Map
+        var map = L.map('map', {
+            center: [-8.341645, 114.149657],
+            zoom: 9,
+            layers: [ExampleData.Basemaps.Grayscale, ExampleData.LayerGroups.cities],
+            zoomControl: false
+        });
+
+        // Overlay layers are grouped
+        var groupedOverlays = {
+        "Administrasi": {
+            "&nbsp;<img src='img/map.png' height=17>&nbsp;Administrasi Kecamatan": ExampleData.LayerGroups.cities,
+            "Restaurants": ExampleData.LayerGroups.restaurants
+        },
+        "Jalan": {
+            "Dogs": ExampleData.LayerGroups.dogs,
+            "Cats": ExampleData.LayerGroups.cats
+        }
+        };
+
+        // Use the custom grouped layer control, not "L.control.layers"
+        L.control.groupedLayers(ExampleData.Basemaps, groupedOverlays).addTo(map);
+
+        // function getColor(d) {
+        //     return d == 'Kaligondo' ? '#cf116a' :
+        //         d == 'Setail' ? '#6ccd17' :
+        //         d == 'Genteng Wetan' ? '#1869cc' :
+        //         d == 'Genteng Kulon' ? '#48d493' :
+        //         d == 'Kembiritan' ? '#d99e5b' :
+        //         '#59FD02';
+        // }
+
+        function popUp(f,l){
+            var out = [];
+            if (f.properties){
+                for(key in f.properties){
+                    out.push(key+"&nbsp;"+f.properties[key]);
+                }
+                l.bindPopup(out.join("<br />"));
+            }
+        }
+    //search box
+    L.Control.geocoder().addTo(map);
+
+
+    //Zoom Control
+    var zoom_bar = new L.Control.ZoomBar({position: 'topleft'}).addTo(map);
+
+    //Lokasi Saya
+    L.control.locate().addTo(map);
+
+    //Rute Terdekat
+    L.Routing.control({
+        // waypoints: [
+        //     L.latLng(57.74, 11.94),
+        //     L.latLng(57.6792, 11.949)
+        // ],
+        routeWhileDragging: false,
+        collapsible: true,
+        geocoder: L.Control.Geocoder.nominatim()
+    }).addTo(map);
+    
+   </script>
+</html>
