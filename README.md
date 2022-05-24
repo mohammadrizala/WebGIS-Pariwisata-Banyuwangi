@@ -1,7 +1,8 @@
 # WebGIS-Pariwisata-Banyuwangi
 WebGIS adalah aplikasi GIS atau pemetaan digital yang memanfaatkan jaringan internet sebagai media komunikasi yang berfungsi mendistribusikan, mempublikasikan, mengintegrasikan, mengkomunikasikan dan menyediakan informasi dalam bentuk teks, peta dijital serta menjalankan fungsi–fungsi analisis dan query yang terkait dengan GIS melalui jaringan internet. (Prahasta, 2007). WebGIS Pariwisata Banyuwangi menyajikan informasi terkait objek wisata di Kabupaten Banyuwangi dan prasarana penunjang pariwisata.
 </br>
-Untuk melihat tampilannya, anda dapat mengecek pada DEMO melalui link dibawah ini
+
+Untuk melihat tampilannya, anda dapat mengecek pada DEMO melalui link dibawah ini.
 </br>
 <a href="https://mohammadrizala.github.io/WebGIS-Pariwisata-Banyuwangi/">DEMO</a>
 </br>
