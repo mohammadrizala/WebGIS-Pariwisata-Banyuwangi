@@ -7,4 +7,4 @@ Untuk melihat tampilannya, anda dapat mengecek pada DEMO melalui link dibawah in
 <a href="https://mohammadrizala.github.io/WebGIS-Pariwisata-Banyuwangi/">DEMO</a>
 </br>
 
-Fitur - fitur yang ada pada webgis ini adalah Zoom yang terbagi menjadi Zoom In, Zoom Out, Zoom To Area, dan Zoom to Start Position; Lokasi Saya; Layer yang berisi informasi yang akan ditampilkan pada peta; Search Location yang berguna untuk mencari lokasi tertentu; Dan Route yang berguna untuk mencari tahu jarak antar dua lokasi atau akses untuk menuju lokasi tertentu.
+Fitur - fitur yang ada pada webgis ini adalah Zoom yang terbagi menjadi Zoom In, Zoom Out, Zoom To Area, dan Zoom to Start Position; Lokasi Saya untuk mengetahui lokasi dimana saya berada; Layer yang berisi informasi yang akan ditampilkan pada peta; Search Location yang berguna untuk mencari lokasi tertentu; Dan Route yang berguna untuk mencari tahu jarak antar dua lokasi atau akses untuk menuju lokasi tertentu.
