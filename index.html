@@ -178,7 +178,8 @@
             "&nbsp;<img src='img/map.png' height=17>&nbsp;Administrasi Kecamatan": ExampleData.LayerGroups.cities
         },
         "Jalan": {
-		"Jalan Arteri": ExampleData.LayerGroups.restaurants
+		"Jalan Arteri": ExampleData.LayerGroups.restaurants,
+		"Jalan Kolektor": ExampleData.LayerGroups.jalan2
         }
         };
 
@@ -198,7 +199,7 @@
             var out = [];
             if (f.properties){
                 for(key in f.properties){
-                    out.push(key+"&nbsp;"+f.properties[key]);
+                    out.push("&nbsp;"+f.properties[key]);
                 }
                 l.bindPopup(out.join("<br />"));
             }
