@@ -131,8 +131,8 @@
         };
 
         var groups = {
-		administrasi: new L.GeoJSON.AJAX(["geojson/Kecamatan_Banyuwangi.geojson"],{style: {"fillColor":"#7FFFD4", "fillOpacity":"0.3", "color":"#008B8B", "weight": 0.3, "opacity":0.8}}),
-		jalan1: new L.GeoJSON.AJAX(["geojson/Jalan_Arteri.geojson"],{onEachFeature:popUp, style: {"color":"#ff5100", "weight": 0.5}}),
+		cities: new L.GeoJSON.AJAX(["geojson/Kecamatan_Banyuwangi.geojson"],{style: {"fillColor":"#7FFFD4", "fillOpacity":"0.3", "color":"#008B8B", "weight": 0.3, "opacity":0.8}}),
+		restaurants: new L.GeoJSON.AJAX(["geojson/Jalan_Arteri.geojson"],{onEachFeature:popUp, style: {"color":"#ff5100", "weight": 0.5}}),
 		jalan2: new L.GeoJSON.AJAX(["geojson/Jalan_Kolektor.geojson"],{onEachFeature:popUp, style: {"color":"#ff8c00", "weight": 0.5}}),
 		jalan3: new L.GeoJSON.AJAX(["geojson/Jalan_Lokal.geojson"],{onEachFeature:popUp, style: {"color":"#9b5aff", "weight": 0.5}}),
 		jalan4: new L.GeoJSON.AJAX(["geojson/Jalan_Lain.geojson"],{onEachFeature:popUp, style: {"color":"#DAA520", "weight": 0.5}}),
@@ -175,10 +175,10 @@
         // Overlay layers are grouped
         var groupedOverlays = {
         "Administrasi": {
-            "&nbsp;<img src='img/map.png' height=17>&nbsp;Administrasi Kecamatan": ExampleData.LayerGroups.administrasi
+            "&nbsp;<img src='img/map.png' height=17>&nbsp;Administrasi Kecamatan": ExampleData.LayerGroups.cities
         },
         "Jalan": {
-		"Jalan Arteri": ExampleData.LayerGroups.jalan1,
+		"Jalan Arteri": ExampleData.LayerGroups.restaurants,
 		"Jalan Kolektor": ExampleData.LayerGroups.jalan2,
 		"Jalan Lokal": ExampleData.LayerGroups.jalan3
         }
