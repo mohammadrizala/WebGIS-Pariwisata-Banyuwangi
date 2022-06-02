@@ -141,7 +141,7 @@
 		jalan7: new L.GeoJSON.AJAX(["geojson/Rel_Kereta.geojson"],{onEachFeature:popUp, style: {"color":"#000", "weight": 0.5}}),
 		setasiun: new L.GeoJSON.AJAX(["geojson/setasiun.geojson"],{onEachFeature:popUp, style: {"color":"#000", "weight": 0.5}}),
 		dogs: new L.LayerGroup(),
-		cats: new L.LayerGroup()
+		cats: new L.GeoJSON.AJAX(["geojson/setasiun.geojson"],{onEachFeature:popUp})
         };
 
 //         L.marker([39.61, -105.02]).bindPopup('Littleton, CO.').addTo(groups.cities);
@@ -188,7 +188,7 @@
 		"&nbsp;<img src='img/rel.png' height=17>&nbsp;Jalur Kereta Api": ExampleData.LayerGroups.jalan7
         },
 	"Prasarana Pariwisata": {
-		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Setasiun Kereta Api": ExampleData.LayerGroups.setasiun
+		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Setasiun Kereta Api": ExampleData.LayerGroups.cats
         }
         };
 
