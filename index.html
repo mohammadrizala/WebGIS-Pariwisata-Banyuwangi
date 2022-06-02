@@ -139,6 +139,7 @@
 		jalan5: new L.GeoJSON.AJAX(["geojson/Jalan_Setapak.geojson"],{onEachFeature:popUp, style: {"color":"#D2691E", "weight": 0.5}}),
 		jalan6: new L.GeoJSON.AJAX(["geojson/Jalan_Tol.geojson"],{onEachFeature:popUp, style: {"color":"#f50000", "weight": 0.5}}),
 		jalan7: new L.GeoJSON.AJAX(["geojson/Rel_Kereta.geojson"],{onEachFeature:popUp, style: {"color":"#000", "weight": 0.5}}),
+		setasiun: new L.GeoJSON.AJAX(["geojson/setasiun.geojson"],{onEachFeature:popUp}),
 		dogs: new L.LayerGroup(),
 		cats: new L.LayerGroup()
         };
@@ -187,7 +188,7 @@
 		"&nbsp;<img src='img/rel.png' height=17>&nbsp;Jalur Kereta Api": ExampleData.LayerGroups.jalan7
         },
 	"Prasarana Pariwisata": {
-		
+		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Setasiun Kereta Api": ExampleData.LayerGroups.setasiun
         }
         };
 
