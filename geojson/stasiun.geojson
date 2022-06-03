@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "stasiun",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Stasiun": "Stasiun Argopuro" }, "geometry": { "type": "Point", "coordinates": [ 114.374, -8.18335 ] } },
+{ "type": "Feature", "properties": { "Stasiun": "Stasiun Banyuwangi Kota" }, "geometry": { "type": "Point", "coordinates": [ 114.338, -8.21869 ] } },
+{ "type": "Feature", "properties": { "Stasiun": "Stasiun Glenmore" }, "geometry": { "type": "Point", "coordinates": [ 114.05, -8.30023 ] } },
+{ "type": "Feature", "properties": { "Stasiun": "Stasiun Kalibaru" }, "geometry": { "type": "Point", "coordinates": [ 113.981, -8.28528 ] } },
+{ "type": "Feature", "properties": { "Stasiun": "Stasiun Kalisetail" }, "geometry": { "type": "Point", "coordinates": [ 114.137, -8.30295 ] } },
+{ "type": "Feature", "properties": { "Stasiun": "Stasiun Ketapang" }, "geometry": { "type": "Point", "coordinates": [ 114.399, -8.13985 ] } },
+{ "type": "Feature", "properties": { "Stasiun": "Stasiun Rogojampi" }, "geometry": { "type": "Point", "coordinates": [ 114.29, -8.29615 ] } },
+{ "type": "Feature", "properties": { "Stasiun": "Stasiun Sumberwadung" }, "geometry": { "type": "Point", "coordinates": [ 114.108, -8.30295 ] } },
+{ "type": "Feature", "properties": { "Stasiun": "Stasiun Temuguruh" }, "geometry": { "type": "Point", "coordinates": [ 114.244, -8.30023 ] } }
+]
+}
