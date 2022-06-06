@@ -139,12 +139,7 @@
 		jalan5: new L.GeoJSON.AJAX(["geojson/Jalan_Setapak.geojson"],{onEachFeature:popUp, style: {"color":"#D2691E", "weight": 0.5}}),
 		jalan6: new L.GeoJSON.AJAX(["geojson/Jalan_Tol.geojson"],{onEachFeature:popUp, style: {"color":"#f50000", "weight": 0.5}}),
 		jalan7: new L.GeoJSON.AJAX(["geojson/Rel_Kereta.geojson"],{onEachFeature:popUp, style: {"color":"#000", "weight": 0.5}}),
-		setasiun: new L.GeoJSON.AJAX(["geojson/stasiun.geojson"],{ 
-		  pointToLayer: function(geoJsonPoint, latlng) {
-		    return L.marker(latlng, { icon: stasiunIcon }); 
-		  },
-		  onEachFeature:popUp
-		}),
+		setasiun: new L.GeoJSON.AJAX(["geojson/stasiun.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: stasiunIcon }); },onEachFeature:popUp}),
 		terminal: new L.GeoJSON.AJAX(["geojson/Terminal.geojson"],{onEachFeature:popUp}),
 		pelabuhan: new L.GeoJSON.AJAX(["geojson/Pelabuhan.geojson"],{onEachFeature:popUp}),
 		bandara: new L.GeoJSON.AJAX(["geojson/Bandara.geojson"],{onEachFeature:popUp}),
@@ -153,12 +148,11 @@
         };
 	
 	// Icon point
-	var icon = {
-	stasiunIcon : L.icon({
-		  iconUrl: 'img/stasiun.png',
-		  iconSize: [38, 95] // size of the icon
-		})
-	}; 
+	var stasiunIcon = L.icon({iconUrl: 'img/stasiun.png', iconSize: [38, 95]});
+	var terminalIcon = L.icon({iconUrl: 'img/terminal.png', iconSize: [38, 95]});
+	var pelabuhanIcon = L.icon({iconUrl: 'img/pelabuhan.png', iconSize: [38, 95]});
+	var bandaraIcon = L.icon({iconUrl: 'img/airport-1.png', iconSize: [38, 95]});
+	var greenIcon = L.icon({iconUrl: 'marker-shadow.png', iconSize: [38, 95]});
 
 //         L.marker([39.61, -105.02]).bindPopup('Littleton, CO.').addTo(groups.cities);
 //         L.marker([39.74, -104.99]).bindPopup('Denver, CO.').addTo(groups.cities);
