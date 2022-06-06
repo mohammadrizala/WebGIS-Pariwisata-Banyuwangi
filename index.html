@@ -140,18 +140,18 @@
 		jalan6: new L.GeoJSON.AJAX(["geojson/Jalan_Tol.geojson"],{onEachFeature:popUp, style: {"color":"#f50000", "weight": 0.5}}),
 		jalan7: new L.GeoJSON.AJAX(["geojson/Rel_Kereta.geojson"],{onEachFeature:popUp, style: {"color":"#000", "weight": 0.5}}),
 		setasiun: new L.GeoJSON.AJAX(["geojson/stasiun.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: stasiunIcon }); },onEachFeature:popUp}),
-		terminal: new L.GeoJSON.AJAX(["geojson/Terminal.geojson"],{onEachFeature:popUp}),
-		pelabuhan: new L.GeoJSON.AJAX(["geojson/Pelabuhan.geojson"],{onEachFeature:popUp}),
-		bandara: new L.GeoJSON.AJAX(["geojson/Bandara.geojson"],{onEachFeature:popUp}),
+		terminal: new L.GeoJSON.AJAX(["geojson/Terminal.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: terminalIcon }); },onEachFeature:popUp}),
+		pelabuhan: new L.GeoJSON.AJAX(["geojson/Pelabuhan.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: pelabuhanIcon }); },onEachFeature:popUp}),
+		bandara: new L.GeoJSON.AJAX(["geojson/Bandara.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: bandaraIcon }); },onEachFeature:popUp}),
 		dogs: new L.LayerGroup(),
 		cats: new L.GeoJSON.AJAX(["geojson/setasiun.geojson"],{onEachFeature:popUp})
         };
 	
 	// Icon point
-	var stasiunIcon = L.icon({iconUrl: 'img/stasiun.png', iconSize: [15, 15]});
-	var terminalIcon = L.icon({iconUrl: 'img/terminal.png', iconSize: [38, 95]});
-	var pelabuhanIcon = L.icon({iconUrl: 'img/pelabuhan.png', iconSize: [38, 95]});
-	var bandaraIcon = L.icon({iconUrl: 'img/airport-1.png', iconSize: [38, 95]});
+	var stasiunIcon = L.icon({iconUrl: 'img/icon-stasiun.png', iconSize: [15, 20]});
+	var terminalIcon = L.icon({iconUrl: 'img/icon-terminal.png', iconSize: [15, 20]});
+	var pelabuhanIcon = L.icon({iconUrl: 'img/icon-pelabuhan.png', iconSize: [15, 20]});
+	var bandaraIcon = L.icon({iconUrl: 'img/icon-bandara-1.png', iconSize: [15, 20]});
 	var greenIcon = L.icon({iconUrl: 'marker-shadow.png', iconSize: [38, 95]});
 
 //         L.marker([39.61, -105.02]).bindPopup('Littleton, CO.').addTo(groups.cities);
@@ -185,10 +185,13 @@
 
         // Overlay layers are grouped
         var groupedOverlays = {
-        "Administrasi": {
-            "&nbsp;<img src='img/map.png' height=17>&nbsp;Administrasi Kecamatan": ExampleData.LayerGroups.cities
+        "Prasarana Penunjang": {
+		"&nbsp;<img src='img/airport-2.png' height=17>&nbsp;Bandara": ExampleData.LayerGroups.bandara,
+		"&nbsp;<img src='img/pelabuhan.png' height=17>&nbsp;Pelabuhan": ExampleData.LayerGroups.pelabuhan,
+		"&nbsp;<img src='img/stasiun.png' height=17>&nbsp;Stasiun": ExampleData.LayerGroups.setasiun,
+		"&nbsp;<img src='img/terminal.png' height=17>&nbsp;Terminal": ExampleData.LayerGroups.terminal
         },
-        "Jalan": {
+	"Jalan": {
 		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan Arteri": ExampleData.LayerGroups.jalan1,
 		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan Kolektor": ExampleData.LayerGroups.jalan2,
 		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan Lokal": ExampleData.LayerGroups.jalan3,
@@ -197,11 +200,8 @@
 		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan Tol": ExampleData.LayerGroups.jalan6,
 		"&nbsp;<img src='img/rel.png' height=17>&nbsp;Jalur Kereta Api": ExampleData.LayerGroups.jalan7
         },
-	"Prasarana Penunjang": {
-		"&nbsp;<img src='img/stasiun.png' height=17>&nbsp;Stasiun": ExampleData.LayerGroups.setasiun,
-		"&nbsp;<img src='img/terminal.png' height=17>&nbsp;Terminal": ExampleData.LayerGroups.terminal,
-		"&nbsp;<img src='img/pelabuhan.png' height=17>&nbsp;Pelabuhan": ExampleData.LayerGroups.pelabuhan,
-		"&nbsp;<img src='img/airport-2.png' height=17>&nbsp;Bandara": ExampleData.LayerGroups.bandara
+	"Administrasi": {
+        	"&nbsp;<img src='img/map.png' height=17>&nbsp;Administrasi Kecamatan": ExampleData.LayerGroups.cities
         }
         };
 
