@@ -16,40 +16,6 @@
             margin: 0;
             padding: 0;
         }
-        .header {
-            height: 100px;
-            background-color: #87CEFA;
-        }
-        .header h1 {
-            padding: 10px;
-            text-align: center;
-        }
-        .header h1 a {
-            text-decoration: none;
-            color: azure;
-        }
-        .header ul {
-            text-align: center;
-        }
-        .header ul li {
-            color: lightslategrey;
-            font-weight: bold;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            display: inline-block;
-            margin-top: 5px;
-            padding: 10px 10px 15px;
-        }
-        .header ul li a {
-            text-decoration: none;
-            color: azure;
-        }
-        .header ul li a:hover {
-            color: lightslategrey;
-            font-weight: bold;
-        }
-        .content { 
-            height: 520px;
-        }
         #map {
             float: left;
             height: 100%;
@@ -62,15 +28,6 @@
 	        background-size:31px 31px;
             border: 2px solid #A9A9A9;
         }
-        .footer {
-            background-color: black;
-            height: 35px;
-        }
-        .footer p {
-            text-align: center;
-            color: white;
-            padding: 5px;
-        }
         .leaflet-control-locate a .leaflet-control-locate-location-arrow {
             -webkit-mask-image:url("img/my-location.svg");mask-image:url("img/my-location.svg");
         }
@@ -79,33 +36,13 @@
                 min-height: 530px;
                 max-height: 2000px;
             }
-            .footer{
-                font-size: 12px;
-                padding-top: 5px;
-            }
-            .leaflet-control-attribution,
-            .leaflet-control-scale-line {
-                font-size: 9px;
-            }
         }
     </style>
 
 </head>
 <body>
-    <div class="header">
-        <h1><a href="#">My Map</a></h1>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><span>Map</span></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </div>
     <div class="content">
         <div id="map"></div>
-    </div>
-    <div class="footer">
-        <p>Copyright 2022 @ Mohammad Rizal Ardiansyah</p>
     </div>
 </body>
 <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
