@@ -75,9 +75,7 @@
 		jalan: new L.GeoJSON.AJAX(["geojson/Jalan_Banyuwangi.geojson"],{onEachFeature:popUp, style : function (feature){
 			jal = feature.properties.REMARK;
 			return {
-				fillColor: getColor(jal),
-				fillOpacity: 0.5,
-				color: "white",
+				color: getColor(jal),
 				dashArray: '3',
 				weight: 1,
 				opacity: 0.7
