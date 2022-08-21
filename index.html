@@ -55,15 +55,6 @@
             height: 100%;
             width: 100%;
         }
-	.footer {
-            background-color: black;
-            height: 35px;
-        }
-        .footer p {
-            text-align: center;
-            color: white;
-            padding: 5px;
-        }
         .leaflet-control-container .leaflet-routing-container-hide {
             width: 35px;
             height: 35px;
@@ -113,12 +104,7 @@
         var groups = {
 		cities: new L.GeoJSON.AJAX(["geojson/Kecamatan_Banyuwangi.geojson"],{style: {"fillColor":"#7FFFD4", "fillOpacity":"0.3", "color":"#008B8B", "weight": 0.3, "opacity":0.8}}),
 		jalan: new L.GeoJSON.AJAX(["geojson/Jalan_Banyuwangi.geojson"],{onEachFeature:popUp, style: {"color":"#ff5100", "weight": 0.5}}),
-		jalan2: new L.GeoJSON.AJAX(["geojson/Jalan_Kolektor.geojson"],{onEachFeature:popUp, style: {"color":"#ff8c00", "weight": 0.5}}),
-		jalan3: new L.GeoJSON.AJAX(["geojson/Jalan_Lokal.geojson"],{onEachFeature:popUp, style: {"color":"#9b5aff", "weight": 0.5}}),
-		jalan4: new L.GeoJSON.AJAX(["geojson/Jalan_Lain.geojson"],{onEachFeature:popUp, style: {"color":"#DAA520", "weight": 0.5}}),
-		jalan5: new L.GeoJSON.AJAX(["geojson/Jalan_Setapak.geojson"],{onEachFeature:popUp, style: {"color":"#D2691E", "weight": 0.5}}),
-		jalan6: new L.GeoJSON.AJAX(["geojson/Jalan_Tol.geojson"],{onEachFeature:popUp, style: {"color":"#f50000", "weight": 0.5}}),
-		jalan7: new L.GeoJSON.AJAX(["geojson/Rel_Kereta.geojson"],{onEachFeature:popUp, style: {"color":"#000", "weight": 0.5}}),
+		rel: new L.GeoJSON.AJAX(["geojson/Rel_Kereta.geojson"],{onEachFeature:popUp, style: {"color":"#000", "weight": 0.5}}),
 		setasiun: new L.GeoJSON.AJAX(["geojson/stasiun.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: stasiunIcon }); },onEachFeature:popUp}),
 		terminal: new L.GeoJSON.AJAX(["geojson/Terminal.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: terminalIcon }); },onEachFeature:popUp}),
 		pelabuhan: new L.GeoJSON.AJAX(["geojson/Pelabuhan.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: pelabuhanIcon }); },onEachFeature:popUp}),
@@ -170,15 +156,10 @@
 		"&nbsp;<img src='img/pelabuhan.png' height=17>&nbsp;Pelabuhan": ExampleData.LayerGroups.pelabuhan,
 		"&nbsp;<img src='img/stasiun.png' height=17>&nbsp;Stasiun": ExampleData.LayerGroups.setasiun,
 		"&nbsp;<img src='img/terminal.png' height=17>&nbsp;Terminal": ExampleData.LayerGroups.terminal,
-		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan Arteri": ExampleData.LayerGroups.jalan
+		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan": ExampleData.LayerGroups.jalan
         },
-	"Jalan": {
-		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan Kolektor": ExampleData.LayerGroups.jalan2,
-		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan Lokal": ExampleData.LayerGroups.jalan3,
-		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan Lain": ExampleData.LayerGroups.jalan4,
-		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan Setapak": ExampleData.LayerGroups.jalan5,
-		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan Tol": ExampleData.LayerGroups.jalan6,
-		"&nbsp;<img src='img/rel.png' height=17>&nbsp;Jalur Kereta Api": ExampleData.LayerGroups.jalan7
+	"Prasarana Penunjang": {
+		"&nbsp;<img src='img/rel.png' height=17>&nbsp;Jalur Kereta Api": ExampleData.LayerGroups.rel
         },
 	"Administrasi": {
         	"&nbsp;<img src='img/map.png' height=17>&nbsp;Administrasi Kecamatan": ExampleData.LayerGroups.cities
