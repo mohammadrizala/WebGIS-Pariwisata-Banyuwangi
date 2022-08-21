@@ -76,7 +76,7 @@
 			jal = feature.properties.REMARK;
 			return {
 				color: getColor(jal),
-				weight: 1,
+				weight: getWeight(jal),
 				opacity: 0.7
 			}
 		}}),
@@ -91,13 +91,23 @@
 	    
 	//color jalan
 	function getColor(d) {
-	    return d == 'Kuranji' ? '#F38484' :
-		   d == 'Jalan Arteri' ? '#D597F9' :
-		   d == 'Jalan Kolektor' ? '#ACC715' :
-		   d == 'Jalan Lain' ? '#EC9949' :
-		   d == 'Jalan Lokal' ? '#4C51EF' :
-		   d == 'Jalan Setapak' ? '#EF4242' :
-		   d == 'Jalan Tol Dua Jalur Dengan Pemisah Fisik' ? '#ff7800' :
+	    return d == 'Jalan Arteri' ? '#FF5100' :
+		   d == 'Jalan Kolektor' ? '#FF8C00' :
+		   d == 'Jalan Lain' ? '#828282' :
+		   d == 'Jalan Lokal' ? '#9B5AFF' :
+		   d == 'Jalan Setapak' ? '#9C9C9C' :
+		   d == 'Jalan Tol Dua Jalur Dengan Pemisah Fisik' ? '#F50000' :
+			'#59FD02';
+	}
+	
+	//weight jalan
+	function getWeight(a) {
+		return a == 'Jalan Arteri' ? '2' :
+		   	a == 'Jalan Kolektor' ? '2' :
+		   	a == 'Jalan Lain' ? '1' :
+		   	a == 'Jalan Lokal' ? '1.5' :
+		   	a == 'Jalan Setapak' ? '1' :
+		   	a == 'Jalan Tol Dua Jalur Dengan Pemisah Fisik' ? '1.5' :
 			'#59FD02';
 	}
 	
