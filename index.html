@@ -72,7 +72,7 @@
 
         var groups = {
 		cities: new L.GeoJSON.AJAX(["geojson/Kecamatan_Banyuwangi.geojson"],{style: {"fillColor":"#7FFFD4", "fillOpacity":"0.3", "color":"#008B8B", "weight": 0.3, "opacity":0.8}}),
-		jalan: new L.GeoJSON.AJAX(["geojson/Jalan_Banyuwangi.geojson"],{onEachFeature:popUp, style: {color:getColor, "weight": 0.5}}),
+		jalan: new L.GeoJSON.AJAX(["geojson/Jalan_Banyuwangi.geojson"],{onEachFeature:popUp, style: { color: getColor }}),
 		rel: new L.GeoJSON.AJAX(["geojson/Rel_Kereta.geojson"],{onEachFeature:popUp, style: {"color":"#000", "weight": 0.5}}),
 		setasiun: new L.GeoJSON.AJAX(["geojson/stasiun.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: stasiunIcon }); },onEachFeature:popUp}),
 		terminal: new L.GeoJSON.AJAX(["geojson/Terminal.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: terminalIcon }); },onEachFeature:popUp}),
