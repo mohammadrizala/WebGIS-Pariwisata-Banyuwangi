@@ -73,9 +73,9 @@
         var groups = {
 		cities: new L.GeoJSON.AJAX(["geojson/Kecamatan_Banyuwangi.geojson"],{style: {"fillColor":"#7FFFD4", "fillOpacity":"0.3", "color":"#008B8B", "weight": 0.3, "opacity":0.8}}),
 		jalan: new L.GeoJSON.AJAX(["geojson/Jalan_Banyuwangi.geojson"],{onEachFeature:popUp, style : function (feature){
-			kec = feature.properties.REMARK;
+			jal = feature.properties.REMARK;
 			return {
-				fillColor: getColor(d),
+				fillColor: getColor(jal),
 				fillOpacity: 0.5,
 				color: "white",
 				dashArray: '3',
