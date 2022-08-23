@@ -62,9 +62,9 @@
         var mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 
         var basemaps = {
-            Grayscale: L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr
-            }),
             Streets: L.tileLayer(mbUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr
+            }),
+            Grayscale: L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr
             }),
             Satellite: L.tileLayer(mbUrl, {id: 'mapbox/satellite-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr
             })
@@ -143,7 +143,7 @@
         var map = L.map('map', {
             center: [-8.341645, 114.149657],
             zoom: 9,
-            layers: [ExampleData.Basemaps.Grayscale, ExampleData.LayerGroups.cities],
+            layers: [ExampleData.Basemaps.Streets, ExampleData.LayerGroups.cities],
             zoomControl: false
         });
 
