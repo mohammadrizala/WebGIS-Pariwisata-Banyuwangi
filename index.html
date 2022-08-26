@@ -80,7 +80,7 @@
 				opacity: 0.7
 			}
 		}}),
-		rel: new L.GeoJSON.AJAX(["geojson/Rel_Kereta.geojson"],{onEachFeature:popUp, style: {"border": "none", "border-top": "1px dotted #f00", "color": "#fff", "background-color": "#fff", "height": "1px", "width": "50%"}}),
+		rel: new L.GeoJSON.AJAX(["geojson/Rel_Kereta.geojson"],{onEachFeature:popUp, style: {"border-top": "2px dotted black"}}),
 		setasiun: new L.GeoJSON.AJAX(["geojson/stasiun.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: stasiunIcon }); },onEachFeature:popUp}),
 		terminal: new L.GeoJSON.AJAX(["geojson/Terminal.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: terminalIcon }); },onEachFeature:popUp}),
 		pelabuhan: new L.GeoJSON.AJAX(["geojson/Pelabuhan.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: pelabuhanIcon }); },onEachFeature:popUp}),
