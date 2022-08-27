@@ -85,8 +85,7 @@
 		terminal: new L.GeoJSON.AJAX(["geojson/Terminal.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: terminalIcon }); },onEachFeature:popUp}),
 		pelabuhan: new L.GeoJSON.AJAX(["geojson/Pelabuhan.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: pelabuhanIcon }); },onEachFeature:popUp}),
 		bandara: new L.GeoJSON.AJAX(["geojson/Bandara.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: bandaraIcon }); },onEachFeature:popUp}),
-		dogs: new L.LayerGroup(),
-		cats: new L.GeoJSON.AJAX(["geojson/setasiun.geojson"],{onEachFeature:popUp})
+		dogs: new L.LayerGroup()
         };
 	    
 	//color jalan
@@ -142,9 +141,12 @@
 		"&nbsp;<img src='img/pelabuhan.png' height=17>&nbsp;Pelabuhan": ExampleData.LayerGroups.pelabuhan,
 		"&nbsp;<img src='img/stasiun.png' height=17>&nbsp;Stasiun": ExampleData.LayerGroups.setasiun,
 		"&nbsp;<img src='img/terminal.png' height=17>&nbsp;Terminal": ExampleData.LayerGroups.terminal,
-		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan": ExampleData.LayerGroups.jalan
+		"&nbsp;<img src='img/jalan.png' height=17>&nbsp;Jalan": ExampleData.LayerGroups.jalan,
+		"&nbsp;<img src='img/rel.png' height=17>&nbsp;Jalur Kereta Api": ExampleData.LayerGroups.rel
         },
 	"Prasarana Penunjang": {
+		"&nbsp;<img src='img/hotel.png' height=17>&nbsp;Hotel": ExampleData.LayerGroups.rel,
+		"&nbsp;<img src='img/spbu.png' height=17>&nbsp;SPBU": ExampleData.LayerGroups.rel,
 		"&nbsp;<img src='img/rel.png' height=17>&nbsp;Jalur Kereta Api": ExampleData.LayerGroups.rel
         },
 	"Administrasi": {
