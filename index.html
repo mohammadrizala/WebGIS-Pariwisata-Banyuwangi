@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web GIS</title>
+    <title>WebGIS Pariwisata Banyuwangi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
     <link rel="stylesheet" href="src/leaflet.groupedlayercontrol.min.css" />
     <link rel="stylesheet" href="src/Control.Geocoder.css" />
@@ -12,12 +13,72 @@
     <link rel="stylesheet" type="text/css" href="src/L.Control.ZoomBar.css"/>
     <link rel="stylesheet" href="src/leaflet-routing-machine.css" />
     <style>
-        * {
-            margin: 0;
+        *{
             padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            text-transform: capitalize;
         }
-        .content { 
-            height: 550px;
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header{
+            position: relative;
+            top: 0; left: 0; right: 0;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+        header .logo{
+            font-weight: bolder;
+            font-size: 25px;
+            color: #000;
+            padding-left: 2%;
+        }
+        header .navbar{
+            padding-right: 2%;
+        }
+        header .navbar ul{
+            list-style: none;
+        }
+        header .navbar ul li{
+            position: relative;
+            float: left;
+        }
+        header .navbar ul li .active{
+            background-color: #1e90ff;
+            color: #FFFFFF;
+        }
+        header .navbar ul li a{
+            font-size: 20px;
+            padding: 21px;
+            color: #000;
+            display: block;
+        }
+        header .navbar ul li a:hover{
+            background: #1e90ff;
+            color: #FFFFFF;
+        }
+        #menu-bar{
+            display: none;
+        }
+        header label{
+            font-size: 20px;
+            color: #000;
+            cursor: pointer;
+            display: none;
+        }
+        header label img{
+            size: 35px;
+        }
+
+        .content{
+            height: 590px;
         }
         #map {
             float: left;
@@ -34,19 +95,177 @@
         .leaflet-control-locate a .leaflet-control-locate-location-arrow {
             -webkit-mask-image:url("img/my-location.svg");mask-image:url("img/my-location.svg");
         }
-        @media (max-width:450px) {
+
+        .container{
+            background: #24262b;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .row h3{
+            margin-bottom: 25px;
+            text-transform: capitalize;
+            position: relative;
+            color: #FFFFFF;
+        }
+        .row h3::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: #1e90ff;
+            height: 2px;
+            box-sizing: border-box;
+            width: 75px;
+        }
+        .footer-bag{
+            width: 33.33%;
+            padding: 3%;
+        }
+        .footer-bag p{
+            color: #bbbbbb;
+        }
+        .footer-bag ul li{
+            margin-bottom: 7px;
+        }
+        .footer-bag ul li a{
+            text-transform: capitalize;
+            color: #FFFFFF;
+            font-weight: 300;
+            color: #bbbbbb;
+            display: block;
+        }
+        .footer-bag ul li a:hover{
+            color: #FFFFFF;
+        }
+        .footer-bag .social-links a{
+            display: inline-block;
+            height: 35px;
+            width: 35px;
+            background-color: rgba(255, 255, 255, .2);
+            color: #bbbbbb;
+            margin: 0 7px 7px 0;
+            text-align: center;
+            line-height: 35px;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+        .footer-bag .social-links a:hover{
+            color: #24262b;
+            background-color: #FFFFFF;
+        }
+        .copyright{
+            height: 50px;
+            background-color: #24262b;
+            color: #bbbbbb;
+            text-align: center;
+            line-height: 50px;
+            font-size: 15px;
+            border-top: 1px solid #aaaaaa;
+        }
+
+        @media(max-width:850px){
+            header{
+                padding: 20px;
+            }
+            header label{
+                display: initial;
+            }
+            header .navbar {
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: #FFFFFF;
+                border-top: 1px solid rgba(0, 0, 0, .1);
+                display: none;
+                padding-right: 0%;
+            }
+            header .navbar ul li{
+                width: 100%;
+                border-bottom: 1px solid rgba(0, 0, 0, .1);
+            }
+            header .navbar ul li a{
+                padding: 17px;
+            }
+            #menu-bar:checked ~ .navbar{
+                display: initial;
+            }
+
             .content{
                 min-height: 530px;
                 max-height: 2000px;
             }
+
+            .footer-bag {
+                width: 100%;
+            }
+            .copyright{
+                font-size: 10px;
+            }
+        }
+        @media(max-width:420px){
+            .copyright{
+                font-size: 7px;
+            }
+            header .logo{
+                font-size: 17px;
+            }
+            header img{
+                width: 35px;
+                height: 35px;
+            }
         }
     </style>
-
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <header>
+        <a href="#" class="logo">WebGIS Pariwisata Banyuwangi</a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar"><img src="img/icon-menu.png"></label>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a class="active" href="#">Map</a></li>
+                <li><a href="#">Destination</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="content">
         <div id="map"></div>
     </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="footer-bag">
+                    <h3>WebGIS</h3>
+                    <p>WebGIS Pariwisata Banyuwangi menyajikan informasi terkait objek wisata di Kabupaten Banyuwangi dan prasarana penunjang pariwisata.</p>
+                </div>
+                <div class="footer-bag">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tentang</a></li>
+                        <li><a href="#">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bag">
+                    <h3>Media Sosial</h3>
+                    <div class="social-links">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-instagram"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-youtube"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2022 WebGIS Pariwisata Banyuwangi | Presented by Mohammad Rizal Ardiansyah</p>
+        </div>
+    </footer>
 </body>
 <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
 <script src="src/leaflet.groupedlayercontrol.min.js"></script>
@@ -128,7 +347,7 @@
         
         //Base Map
         var map = L.map('map', {
-            center: [-8.341645, 114.149657],
+            center: [-8.331645, 114.149657],
             zoom: 9,
             layers: [ExampleData.Basemaps.Streets, ExampleData.LayerGroups.cities],
             zoomControl: false
