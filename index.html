@@ -307,6 +307,7 @@
 		terminal: new L.GeoJSON.AJAX(["geojson/Terminal.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: terminalIcon }); },onEachFeature:popUp}),
 		pelabuhan: new L.GeoJSON.AJAX(["geojson/Pelabuhan.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: pelabuhanIcon }); },onEachFeature:popUp}),
 		bandara: new L.GeoJSON.AJAX(["geojson/Bandara.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: bandaraIcon }); },onEachFeature:popUp}),
+		spbu: new L.GeoJSON.AJAX(["geojson/spbu.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: spbuIcon }); },onEachFeature:popUp}),
 		dogs: new L.LayerGroup()
         };
 	    
@@ -337,6 +338,7 @@
 	var terminalIcon = L.icon({iconUrl: 'img/icon-terminal.png', iconSize: [23, 25]});
 	var pelabuhanIcon = L.icon({iconUrl: 'img/icon-pelabuhan.png', iconSize: [23, 25]});
 	var bandaraIcon = L.icon({iconUrl: 'img/icon-bandara-1.png', iconSize: [23, 25]});
+	var spbuIcon = L.icon({iconUrl: 'img/icon-spbu.png', iconSize: [23, 25]});
 	var greenIcon = L.icon({iconUrl: 'marker-shadow.png', iconSize: [38, 95]});
 
 
