@@ -303,6 +303,7 @@
 			}
 		}}),
 		rel: new L.GeoJSON.AJAX(["geojson/Rel_Kereta.geojson"],{onEachFeature:popUp, style: {"color":"#000", "weight": 0.5}}),
+		wisata: new L.GeoJSON.AJAX(["geojson/Objek_Wisata.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: wisataIcon }); },onEachFeature:popUp}),
 		setasiun: new L.GeoJSON.AJAX(["geojson/stasiun.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: stasiunIcon }); },onEachFeature:popUp}),
 		terminal: new L.GeoJSON.AJAX(["geojson/Terminal.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: terminalIcon }); },onEachFeature:popUp}),
 		pelabuhan: new L.GeoJSON.AJAX(["geojson/Pelabuhan.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: pelabuhanIcon }); },onEachFeature:popUp}),
@@ -364,7 +365,7 @@
         // Overlay layers are grouped
         var groupedOverlays = {
 	"Objek Wisata": {
-		"&nbsp;<img src='img/map-pin.png' height=17>&nbsp;Objek Wisata": ExampleData.LayerGroups.rel
+		"&nbsp;<img src='img/map-pin.png' height=17>&nbsp;Objek Wisata": ExampleData.LayerGroups.wisata
         },
         "Prasarana Transportasi": {
 		"&nbsp;<img src='img/airport-2.png' height=17>&nbsp;Bandara": ExampleData.LayerGroups.bandara,
