@@ -303,7 +303,7 @@
 			}
 		}}),
 		rel: new L.GeoJSON.AJAX(["geojson/Rel_Kereta.geojson"],{onEachFeature:popUp, style: {"color":"#000", "weight": 0.5}}),
-		wisata: new L.GeoJSON.AJAX(["geojson/Objek_Wisata.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: wisataIcon }); },onEachFeature:popUp}),
+		wisata: new L.GeoJSON.AJAX(["geojson/Objek_Wisata.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: wisataIcon }); },onEachFeature:popUpOW}),
 		setasiun: new L.GeoJSON.AJAX(["geojson/stasiun.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: stasiunIcon }); },onEachFeature:popUp}),
 		terminal: new L.GeoJSON.AJAX(["geojson/Terminal.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: terminalIcon }); },onEachFeature:popUp}),
 		pelabuhan: new L.GeoJSON.AJAX(["geojson/Pelabuhan.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: pelabuhanIcon }); },onEachFeature:popUp}),
@@ -387,7 +387,17 @@
         // Use the custom grouped layer control, not "L.control.layers"
         L.control.groupedLayers(ExampleData.Basemaps, groupedOverlays).addTo(map);
 
-        function popUp(f,l){
+        function popUpOW(f,l){
+            var out = [];
+            if (f.properties){
+                for(key in f.properties){
+                    out.push("&nbsp;"+f.properties[key]);
+                }
+                l.bindPopup(out.join("<br /> <p>Salah satu destinasi unggulan Kabupaten Banyuwangi yang menawarkan keindahan Pantai.</p>"));
+            }
+        }
+	   
+	function popUp(f,l){
             var out = [];
             if (f.properties){
                 for(key in f.properties){
