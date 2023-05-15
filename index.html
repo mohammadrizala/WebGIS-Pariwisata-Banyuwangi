@@ -20,7 +20,6 @@
             list-style: none;
             box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
-            text-transform: capitalize;
         }
         body{
             font-family: Arial, Helvetica, sans-serif;
@@ -389,7 +388,7 @@
             var out = [];
             if (f.properties){
                 for(key in f.properties){
-                    out.push("&nbsp;"+f.properties[key]+"<br/> <img src='img/Pulau-Tabuhan.jpg' height=200 width=300> <p>Pulau Tabuhan merupakan pulau tak berpenghuni di Selat Bali yang memiliki pemandangan memesona dengan pasir putih dan air laut yang jernih.</p> <a href='#'>See More > </a>");
+                    out.push("&nbsp;"+f.properties[key]+"<br/> <img src='img/Pulau-Tabuhan.jpg' height=200 width=300> <p>Pulau Tabuhan merupakan pulau tak berpenghuni di Selat Bali yang memiliki pemandangan memesona dengan pasir putih dan air laut yang jernih.</p> <a href='pulau-tabuhan.html'>See More > </a>");
                 }
                 l.bindPopup(out.join("<br />"));
             }
