@@ -82,7 +82,8 @@
         .content h1{
             text-align: center;
             font-size: 25px;
-            padding: 2%;
+            padding-top: 2%;
+            padding-bottom: 1%;
         }
         .content img{
             display: block;
@@ -95,6 +96,58 @@
             margin-right: 5%;
             padding-bottom: 2%;
             text-align: justify;
+        }
+        .comment{
+            margin-left: 5%;
+            margin-right: 5%;
+            padding-bottom: 5%;
+        }
+        .comment h3{
+            font-size: 18px;
+            padding-bottom: 2%;
+            margin-top: 2%;
+        }
+        .comment input, .comment textarea {
+            border: 2px solid rgba(0,0,0,0.1);
+            padding: 8px 10px;
+            outline: 0;
+            margin-bottom: 7px;
+        }
+        .comment input {
+            width: 100%;
+        }
+        .comment textarea {
+            width: 100%;
+        }
+
+        .comment input[type="submit"] {
+            cursor: pointer;
+            background: -webkit-linear-gradient(top, #efefef, #ddd);
+            background: -moz-linear-gradient(top, #efefef, #ddd);
+            background: -ms-linear-gradient(top, #efefef, #ddd);
+            background: -o-linear-gradient(top, #efefef, #ddd);
+            background: linear-gradient(top, #efefef, #ddd);
+            color: #333;
+            text-shadow: 0px 1px 1px rgba(255,255,255,1);
+            border: 1px solid #ccc;
+        }
+
+        .comment [type="submit"]:hover {
+            background: -webkit-linear-gradient(top, #eee, #ccc);
+            background: -moz-linear-gradient(top, #eee, #ccc);
+            background: -ms-linear-gradient(top, #eee, #ccc);
+            background: -o-linear-gradient(top, #eee, #ccc);
+            background: linear-gradient(top, #eee, #ccc);
+            border: 1px solid #bbb;
+        }
+
+        .comment input[type="submit"]:active {
+            background: -webkit-linear-gradient(top, #ddd, #aaa);
+            background: -moz-linear-gradient(top, #ddd, #aaa);
+            background: -ms-linear-gradient(top, #ddd, #aaa);
+            background: -o-linear-gradient(top, #ddd, #aaa);
+            background: linear-gradient(top, #ddd, #aaa);    
+            border: 1px solid #999;
         }
         .container{
             background: #24262b;
@@ -245,8 +298,9 @@
     </header>
     <div class="content">
         <h1>Pulau Tabuhan</h1>
+        <p style="text-align: center; font-size: 15px;"><a href="#" style="color: #00BFFF;">Mohammad Rizal Ardiansyah</a> - 21 Mei 2023</p>
         <img src="img/Pulau-Tabuhan.jpg" height="400px" width="700px">
-        <p>Pulau Tabuhan terletak diantara Pulau Jawa dan Pulau Bali. Namun secara administratif, Pulau Tabuhan masuk ke dalam wilayah Kabupaten Banyuwangi, tepatnya di Desa Bengkak, Kecamatan Wongsorejo.</p>
+        <p><b>Pulau Tabuhan</b> terletak diantara Pulau Jawa dan Pulau Bali. Namun secara administratif, Pulau Tabuhan masuk ke dalam wilayah Kabupaten Banyuwangi, tepatnya di Desa Bengkak, Kecamatan Wongsorejo.</p>
         <p>Pulau Tabuhan merupakan pulau tak berpenghuni yang terletak di Selat Bali. Luas pulau Tabuhan hanya sekitar 5 hektar. Maski begitu, Pulau Tabuhan memiliki panorama alam yang luar biasa cantiknya. Di tengah-tenegah pulau, terdapat pepohonan yang rindang, dan dikelilingi pasir putih sepanjang garis pantainya, serta memiliki air laut yang jernih dan tenang.</p>
         <p>Banyak hal yang dapat dilakukan oleh wisatawan ketika mengunjungi Pulau Tabuhan. Mulai dari jalan-jalan di sekitar pantai, bersantai sambil menikmati keindahan alam, hingga snorkling. Wisatawan dapat berjalan-jalan di pantai pasir putih sambil menikmati deburan ombak dan keindahan alam Pulau Tabuhan. Hanya dibutuhkan sekitar 15 menit untuk dapat mengitari pulau ini.</p>
         <p>Wisatawan juga dapat bersantai sambil berfoto si sekitar pulau. Banyak  sekali spot foto yang instagramable di Pulau Tabuhan. Pengunjung dapat berfoto di ayunan yang ada di pantai atau dekat mercusuar peninggalan Belanda.</p>
@@ -256,6 +310,14 @@
         <p>Karena merupakan pulau yang tak berpenghuni, ketersediaan fasilitas di Pulau Tabuhan masih sangat minim. Fasilitas penginapan dan penyewaan alat snorkling terdapat di Pantai Bangsring, tempat awal keberangkatan kapal sebelum menuju ke Pulau Tabuhan.</p>
         <p>Satu-satunya akses menuju Pulau Tabuhan adalah dengan kapal laut. Wisatawan dapat naik kapal dari Pantai Bangsring, yang merupakan akses terdekat ke Pulau Tabuhan. Jika wisatawan dari pusat kota Banyuwangi, dapat mengambil jalan ke arah utara menuju Rumah Apung atau Pantai Bangsring, selanjutnya dapat naik kapal menuju Pulau Tabuhan.</p>
         <p>Tiket masuk ke Pulau Tabuha gratis atau tidak ada tiket masuk. Pengunjung hanya perlu membayar tiket kapal untuk menuju ke Pulau Tabuhan. Untuk memudahkan wisatawan, terdapat berbagai paket wisata ke Pulau Tabuhan.</p>
+        <hr>
+        <div class="comment">
+            <h3>Tinggalkan Komentar Anda</h3>
+            <input type="text" placeholder="Nama"><br>
+            <input type="email" placeholder="Email"><br>
+            <textarea rows="10" name="comment" id="comment" placeholder="Berikan komentar anda"></textarea><br>
+            <input type="submit" name="submit" value="Kirim Komentar">
+        </div>
     </div>
     <footer>
         <div class="container">
