@@ -386,11 +386,12 @@
         L.control.groupedLayers(ExampleData.Basemaps, groupedOverlays).addTo(map);
 
         function popUpOW(f,l){
+            var out = [];
             if (f.properties){
                 for(key in f.properties){
-                    out.push("&nbsp;"+"<img src='img/Pulau-Tabuhan.jpg' height=200 width=300> <br/>"+f.properties+"<br/> <a href='pulau-tabuhan.html'>See More > </a>");
+                    out.push("<img src='img/Pulau-Tabuhan.jpg' height=200 width=300> <br/>");
                 }
-                l.bindPopup(out.join("<br />"));
+                l.bindPopup(out.join("&nbsp;"+f.properties[key]+"<br/> <a href='pulau-tabuhan.html'>See More > </a>"));
             }
         }
 	   
