@@ -391,7 +391,7 @@
                 for(key in f.properties){
                     out.push("<img src='img/Pulau-Tabuhan.jpg' height=200 width=300> <br/>");
                 }
-                l.bindPopup(out.join("&nbsp;"+f.properties[key]+"<br/> <a href='pulau-tabuhan.html'>See More > </a>"));
+                l.bindPopup(out.join(f.properties[key]));
             }
         }
 	   
