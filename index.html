@@ -387,9 +387,9 @@
 
         function popUpOW(f,l){
             var out = [];
-            if (f.properties.Objek_Wisa){
-                for(key in f.properties.Objek_Wisa){
-                    out.push("&nbsp;"+"<img src='img/Pulau-Tabuhan.jpg' height=200 width=300> <br/>"+f.properties.Objek_Wisa[key]+"<br/> <a href='pulau-tabuhan.html'>See More > </a>");
+            if (f.properties){
+                for(key in f.properties){
+                    out.push("&nbsp;"+"<img src='img/Pulau-Tabuhan.jpg' height=200 width=300> <br/>"+f.properties[key]+"<br/> <a href='pulau-tabuhan.html'>See More > </a>");
                 }
                 l.bindPopup(out.join("<br />"));
             }
