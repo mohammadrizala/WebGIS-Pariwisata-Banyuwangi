@@ -306,7 +306,7 @@
 		terminal: new L.GeoJSON.AJAX(["geojson/Terminal.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: terminalIcon }); },onEachFeature:popUp}),
 		pelabuhan: new L.GeoJSON.AJAX(["geojson/Pelabuhan.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: pelabuhanIcon }); },onEachFeature:popUp}),
 		bandara: new L.GeoJSON.AJAX(["geojson/Bandara.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: bandaraIcon }); },onEachFeature:popUp}),
-		spbu: new L.GeoJSON.AJAX(["geojson/spbu.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: spbuIcon }); },onEachFeature:popUpp}),
+		spbu: new L.GeoJSON.AJAX(["geojson/spbu.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: spbuIcon }); },onEachFeature:popUp}),
 		hotel: new L.GeoJSON.AJAX(["geojson/hotel.geojson"],{pointToLayer: function(geoJsonPoint, latlng) {return L.marker(latlng, { icon: hotelIcon }); },onEachFeature:popUp}),
 		dogs: new L.LayerGroup()
         };
@@ -405,15 +405,6 @@
             }
         }
 
-	   function popUpp(f,l){
-            var out = [];
-            if (f.properties){
-                for(key in f.properties){
-                    out.push("&nbsp;"+"<h4>SPBU</h4>"f.properties[key]);
-                }
-                l.bindPopup(out.join("<br />"));
-            }
-        }
     //search box
     L.Control.geocoder().addTo(map);
 
